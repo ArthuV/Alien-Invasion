@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alien Invation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-wide w3-padding w3-card">
+    <a href="index1.html" class="w3-bar-item w3-button"><b>Alien</b>Invation</a>
+    <div class="w3-right w3-hide-small">
+      <a href="index.html" class="w3-bar-item w3-button">Translator</a>
+      <a href="camara.html" class="w3-bar-item w3-button">Camera</a>
+      <a href="SafetyTips.html" class="w3-bar-item w3-button">Safety Tips</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <video id="myVidPlayer" controls muted autoplay></video>
+<script type="text/javascript">
+    const video = document.querySelector('#myVidPlayer');
+
+    //Core #from website dev
+    window.navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            
+            video.srcObject = stream;
+            video.onloadedmetadata = (e) => {
+                video.play();
+            };
+        })
+        .catch( () => {
+            alert('You have give browser the permission to run Webcam and Mic.');
+        }); 
+
+</script>
